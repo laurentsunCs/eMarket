@@ -1,0 +1,26 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+/* 
+    Created on : 21 mars 2025, 14:36:19
+    Author     : laurentsun
+*/
+
+body {
+    background-color: white;
+    color: black;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    color: purple;
+    font-family: Arial Black, sans-serif;
+    border-bottom: 1px solid purple;
+}
+p {
+	font-size: 11pt;
+	text-align: justify;
+}
+
+
