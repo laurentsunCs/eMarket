@@ -17,6 +17,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                 <h:outputText value="Catalogue" styleClass="h1"/>
             </h:panelGroup>
             <h:form>
+                <h:outputText value="Nombre de produits : #{catalogManager.products.size()}" />
+                <h:dataTable value="#{catalogManager.products}" var="product">
+                    <h:column>
+                        <h:outputText value="#{product.name}" />
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{product.price}" />
+                    </h:column>
+                </h:dataTable>   
                 <ul>
                     <li>
                         <h:commandLink action="toindex" styleClass="btn">
