@@ -17,8 +17,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                 <h:outputText value="Catalogue" styleClass="h1"/>
             </h:panelGroup>
             <h:form>
-                <h:commandLink value="Retour à l'accueil" action="toIndex" styleClass="btn"/>
-                <h:commandLink value="Voir le panier" action="toShoppingCart" styleClass="btn"/>
+                <h:link outcome="/index.xhtml" value="Retour à l'accueil" styleClass="btn"/>
+                <h:link outcome="/shoppingCart.xhtml" value="Voir le panier" styleClass="btn"/>
             </h:form>
         </f:view>
     </h:body>

@@ -18,9 +18,9 @@
             <h:outputLink value="http://www.centralesupelec.fr">Voila un lien</h:outputLink>
             <h:outputText value="Voici un texte particulier" id="texteParticulier"/>
             <h:form>
-                <h:commandLink value="Voir le catalogue" action="toCatalog"/>
-                <h:commandLink value="Voir le panier" action="toShoppingCart"/>
+                <h:link outcome="/catalog.xhtml" value="Voir le catalogue" styleClass="btn"/>
+                <h:link outcome="/shoppingCart.xhtml" value="Voir le panier" styleClass="btn"/>
             </h:form>
         </f:view>
-</h:body>
+    </h:body>
 </html>
