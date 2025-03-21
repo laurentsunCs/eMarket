@@ -22,5 +22,29 @@ p {
 	font-size: 11pt;
 	text-align: justify;
 }
+a {
+	font-weight: bold;
+	color: orange;
+}
+
+.redtext {
+	color: red;
+    font-weight: bold;
+}
+
+#texteParticulier {
+    color: blue;
+    font-style: italic;
+}
+
+#panier {
+    color: green;
+    font-weight: bold;
+}
+
+#catalogue {
+    color: red;
+    font-weight: bold;
+}
 
 

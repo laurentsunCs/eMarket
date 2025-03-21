@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core">
+    <h:head>
+        <title>Catalogue</title>
+        <link href="monstyle.css" rel="stylesheet" type="text/css" />
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:panelGroup>
+                <h:outputText value="Catalogue" styleClass="h1"/>
+            </h:panelGroup>
+            <h:form>
+                <h:commandLink value="Retour à l'accueil" action="toIndex" styleClass="btn"/>
+                <h:commandLink value="Voir le panier" action="toShoppingCart" styleClass="btn"/>
+            </h:form>
+        </f:view>
+    </h:body>
+</html>
+
