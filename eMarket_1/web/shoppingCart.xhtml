@@ -18,8 +18,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                 <h:outputText value="Panier" styleClass="h1"/>
             </h:panelGroup>
             <h:form>
-                <h:link outcome="/catalog.xhtml" value="Retour au catalogue" styleClass="btn"/>
-                <h:link outcome="/index.xhtml" value="Retour à l'accueil" styleClass="btn"/>
+                <ul>
+                    <li>
+                        <h:commandLink action="tocatalog" styleClass="btn">
+                            <h:outputText value="Retour au catalogue"/>
+                        </h:commandLink>
+                    </li>
+                    <li>
+                        <h:commandLink action="toindex" styleClass="btn">
+                            <h:outputText value="Retour à l'accueil"/>
+                        </h:commandLink>
+                    </li>
+                </ul>
             </h:form>
         </f:view>
     </h:body>

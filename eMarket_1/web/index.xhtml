@@ -18,8 +18,18 @@
             <h:outputLink value="http://www.centralesupelec.fr">Voila un lien</h:outputLink>
             <h:outputText value="Voici un texte particulier" id="texteParticulier"/>
             <h:form>
-                <h:link outcome="/catalog.xhtml" value="Voir le catalogue" styleClass="btn"/>
-                <h:link outcome="/shoppingCart.xhtml" value="Voir le panier" styleClass="btn"/>
+                <ul>
+                    <li>
+                        <h:commandLink action="tocatalog" styleClass="btn">
+                            <h:outputText value="Voir le catalogue"/>
+                        </h:commandLink>
+                    </li>
+                    <li>
+                        <h:commandLink action="toshoppingcart" styleClass="btn">
+                            <h:outputText value="Voir le panier"/>
+                        </h:commandLink>
+                    </li>
+                </ul>
             </h:form>
         </f:view>
     </h:body>
