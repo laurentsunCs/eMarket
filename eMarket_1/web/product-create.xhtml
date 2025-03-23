@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core">
+    <h:head>
+        <title>Ajouter un nouveau produit au catalogue</title>
+        <link href="monstyle.css" rel="stylesheet" type="text/css" />
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                <h:commandLink action="toindex" styleClass="btn">
+                    <h:outputText value="Retour à l'accueil"/>
+                </h:commandLink>
+                <h:outputLabel id="id" for="id" value="ID du produit : " />
+                <h:inputText id="productId" value="#{catalogManager.newProductId}" />
+                <h:outputLabel id="name" for="name" value="Nom du produit : " />
+                <h:inputText id="productName" value="#{catalogManager.newProductName}" />
+                <h:outputLabel id="price" for="price" value="Prix du produit : " />
+                <h:inputText id="productPrice" value="#{catalogManager.newProductPrice}" />
+                <h:commandButton action="#{catalogManager.createProduct()}" value="Créer le produit" />
+            </h:form>
+        </f:view>
+    </h:body>
+</html>

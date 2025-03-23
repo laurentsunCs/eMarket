@@ -17,14 +17,20 @@
             </h:panelGroup>
             <h:form>
                 <h:outputText value="Nombre de produits : #{catalogManager.products.size()}" />
-                <h:dataTable value="#{catalogManager.products}" var="product">
+                <h:dataTable value="#{catalogManager.products}" var="product" rendered="#{not empty catalogManager.products}">
                     <h:column>
-                        <h:outputText value="#{product.name}" />
+                        <f:facet name="header">ID</f:facet>
+                        #{product.id}
                     </h:column>
                     <h:column>
-                        <h:outputText value="#{product.price}" />
+                        <f:facet name="header">Nom</f:facet>
+                        #{product.name}
                     </h:column>
-                </h:dataTable>   
+                    <h:column>
+                        <f:facet name="header">Prix</f:facet>
+                        #{product.price}
+                    </h:column>
+                </h:dataTable>
                 <ul>
                     <li>
                         <h:commandLink action="toindex" styleClass="btn">

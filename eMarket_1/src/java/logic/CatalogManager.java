@@ -15,6 +15,49 @@ import model.Product;
 public class CatalogManager implements Serializable {
     private ArrayList<Product> products;
 
+    // Variables pour le formulaire de création de produit
+    private Integer newProductId;
+    private String newProductName;
+    private Double newProductPrice;
+
+    // Getters et setters pour les variables de création de produit
+    public Integer getNewProductId() {
+        return newProductId;
+    }
+    public void setNewProductId(Integer newProductId) {
+        this.newProductId = newProductId;
+    }
+
+    public String getNewProductName() {
+        return newProductName;
+    }
+    public void setNewProductName(String newProductName) {
+        this.newProductName = newProductName;
+    }
+
+    public Double getNewProductPrice() {
+        return newProductPrice;
+    }
+    public void setNewProductPrice(Double newProductPrice) {
+        this.newProductPrice = newProductPrice;
+    }
+
+    public String createProduct() {
+        Product product = new Product();
+        product.setId(newProductId);
+        product.setName(newProductName);
+        product.setPrice(newProductPrice);
+        products.add(product);
+
+        // Réinitialiser les champs
+        newProductId = null;
+        newProductName = null;
+        newProductPrice = null;
+
+        return "tocatalog"; // Déclenche la navigation vers catalog.xhtml
+    }
+
+
     public CatalogManager() {
         products = new ArrayList<>();
     }
@@ -46,6 +89,7 @@ public class CatalogManager implements Serializable {
     }
 
     public ArrayList<Product> getProducts() {
+        System.out.println("Nombre de produits : " + products.size());
         return products;
     }
 
