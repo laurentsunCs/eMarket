@@ -19,6 +19,10 @@ public class CatalogManager implements Serializable {
     private Integer newProductId;
     private String newProductName;
     private Double newProductPrice;
+    
+    public CatalogManager() {
+        products = new ArrayList<>();
+    }
 
     // Getters et setters pour les variables de création de produit
     public Integer getNewProductId() {
@@ -55,11 +59,6 @@ public class CatalogManager implements Serializable {
         newProductPrice = null;
 
         return "tocatalog"; // Déclenche la navigation vers catalog.xhtml
-    }
-
-
-    public CatalogManager() {
-        products = new ArrayList<>();
     }
 
     @PostConstruct

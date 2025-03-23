@@ -46,4 +46,11 @@ a {
     font-weight: bold;
 }
 
+.message-success {
+    color: green;
+    padding: 10px;
+    border: 1px solid green;
+    margin: 10px 0;
+}
+
 

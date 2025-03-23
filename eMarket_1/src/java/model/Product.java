@@ -4,8 +4,6 @@
 package model;
 
 import java.io.Serializable;
-import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.inject.Named;
 
 /**
  *

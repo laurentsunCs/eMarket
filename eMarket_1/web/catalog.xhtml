@@ -12,6 +12,7 @@
     </h:head>
     <h:body>
         <f:view>
+            <h:messages globalOnly="true" styleClass="message-success" />
             <h:panelGroup>
                 <h:outputText value="Catalogue" styleClass="h1"/>
             </h:panelGroup>
@@ -29,6 +30,15 @@
                     <h:column>
                         <f:facet name="header">Prix</f:facet>
                         #{product.price}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Action</f:facet>
+                        <h:commandButton value="Ajouter" action="#{shoppingCartManager.addToCart()}">
+                            <f:setPropertyActionListener 
+                                target="#{shoppingCartManager.prodToAdd}" 
+                                value="#{product.id}" 
+                            />
+                        </h:commandButton>
                     </h:column>
                 </h:dataTable>
                 <ul>

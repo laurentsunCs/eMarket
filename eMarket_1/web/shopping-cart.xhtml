@@ -29,6 +29,24 @@
                         </h:commandLink>
                     </li>
                 </ul>
+                <h:dataTable value="#{shoppingCartManager.shoppingCart}" var="item">
+                    <h:column>
+                        <f:facet name="header">Produit</f:facet>
+                        #{item.product.name}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Quantité</f:facet>
+                        #{item.quantity}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Prix unitaire</f:facet>
+                        #{item.product.price} €
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Total</f:facet>
+                        #{item.totalPrice} €
+                    </h:column>
+                </h:dataTable>
             </h:form>
         </f:view>
     </h:body>
