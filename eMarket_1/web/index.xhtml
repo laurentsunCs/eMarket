@@ -2,43 +2,67 @@
 <!--
 /eMarket_1/web/index.xhtml
 -->
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="jakarta.faces.html"
-      xmlns:f="jakarta.faces.core">
-    <h:head>
-        <link href="monstyle.css" rel="stylesheet" type="text/css" />
-        <title>eMarket</title>
-    </h:head>
-    <h:body>
-        <f:view>
-            <h1>Accueil</h1>
-            <p>Bienvenue sur l'application de commande en ligne eMarket.</p>
-            <p>N'hesitez pas a visiter 
-                <a href="http://www.centralesupelec.fr" target="_blank"> le site de CentraleSupelec</a>, 
-            notre partenaire.</p>
-            <h:outputText value="Voici du texte" styleClass="redtext"/>
-            <h:outputLink value="http://www.centralesupelec.fr">Voila un lien</h:outputLink>
-            <h:outputText value="Voici un texte particulier" id="texteParticulier"/>
-            <h:form>
-                <ul>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="jakarta.faces.html" xmlns:f="jakarta.faces.core">
+<h:head>
+    <link href="monstyle.css" rel="stylesheet" type="text/css" />
+    <title>eMarket</title>
+</h:head>
+<h:body>
+    <f:view>
+        <h:form>
+            <nav class="navbar">
+                <ul class="nav-links">
                     <li>
-                        <h:commandLink action="tocatalog" styleClass="btn">
-                            <h:outputText value="Voir le catalogue"/>
+                        <h:commandLink action="toindex" styleClass="nav-link">
+                            <i class="fas fa-home"></i> <!-- Optionnel -->
+                            <h:outputText value="Accueil" />
                         </h:commandLink>
                     </li>
                     <li>
-                        <h:commandLink action="toshoppingcart" styleClass="btn">
-                            <h:outputText value="Voir le panier"/>
+                        <h:commandLink action="tocatalog" styleClass="nav-link">
+                            <i class="fas fa-book"></i>
+                            <h:outputText value="Catalogue" />
                         </h:commandLink>
                     </li>
                     <li>
-                        <h:commandLink action="toproductcreation" styleClass="btn">
-                            <h:outputText value="Ajouter un produit"/>
+                        <h:commandLink action="toshoppingcart" styleClass="nav-link">
+                            <i class="fas fa-shopping-cart"></i>
+                            <h:outputText value="Panier (#{shoppingCartManager.shoppingCart.size()})" />
+                        </h:commandLink>
+                    </li>
+                    <li>
+                        <h:commandLink action="toproductcreation" styleClass="nav-link">
+                            <i class="fas fa-plus"></i>
+                            <h:outputText value="Ajouter un produit" />
                         </h:commandLink>
                     </li>
                 </ul>
-            </h:form>
-        </f:view>
-    </h:body>
+            </nav>
+            <div class="container">
+
+                <h1>Accueil</h1>
+                <p>Bienvenue sur l'application de commande en ligne eMarket.</p>
+                <p>N'hesitez pas a visiter
+                    <a href="http://www.centralesupelec.fr" target="_blank"> le site de CentraleSupelec</a>,
+                    notre partenaire.
+                </p>
+                <ul>
+                    <li>
+                        <h:outputText value="Voici du texte" styleClass="redtext" />
+                    </li>
+                    <li>
+                        <h:outputLink value="http://www.centralesupelec.fr">Voila un lien</h:outputLink>
+                    </li>
+                    <li>
+                        <h:outputText value="Voici un texte particulier" id="texteParticulier" />
+                    </li>
+                </ul>
+
+            </div>
+        </h:form>
+    </f:view>
+</h:body>
+
 </html>

@@ -28,6 +28,10 @@
             <from-outcome>toproductcreation</from-outcome>
             <to-view-id>/product-create.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>toindex</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     
     <navigation-rule>
@@ -39,6 +43,14 @@
         <navigation-case>
             <from-outcome>toindex</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>toproductcreation</from-outcome>
+            <to-view-id>/product-create.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>toshoppingcart</from-outcome>
+            <to-view-id>/shopping-cart.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     
@@ -56,6 +68,10 @@
             <from-outcome>toindex</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>toproductcreation</from-outcome>
+            <to-view-id>/product-create.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
 
     <navigation-rule>
@@ -68,6 +84,15 @@
             <from-outcome>tocatalog</from-outcome>
             <to-view-id>/catalog.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>toshoppingcart</from-outcome>
+            <to-view-id>/shopping-cart.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>toproductcreation</from-outcome>
+            <to-view-id>/product-create.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
+
     
 </faces-config>

@@ -1,56 +1,374 @@
 /*
 /eMarket_1/web/monstyle.css
 */
-/* 
-    Created on : 21 mars 2025, 14:36:19
-    Author     : laurentsun
-*/
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");
 
+:root {
+    --primary-color: #800080;    /* Violet */
+    --secondary-color: #FFA500;  /* Orange */
+    --success-color: #28a745;    /* Vert */
+    --error-color: #dc3545;      /* Rouge */
+    --background-light: #f8f9fa; /* Gris clair */
+    --text-dark: #212529;        /* Noir */
+}
+
+/* ------------------------- */
+/* Reset et styles de base    */
+/* ------------------------- */
 body {
-    background-color: white;
-    color: black;
-    font-family: Verdana, Arial, Helvetica, sans-serif;
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    font-family: 'Segoe UI', Verdana, Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0 1rem 4rem; /* Espacement pour le footer */
+    min-height: 100vh;
+    position: relative;
+}
+
+h1, h2, h3 {
+    color: var(--primary-color);
+    font-family: 'Arial Black', sans-serif;
+    margin: 1.5rem 0;
 }
 
 h1 {
-    color: purple;
-    font-family: Arial Black, sans-serif;
-    border-bottom: 1px solid purple;
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 0.5rem;
 }
-p {
-	font-size: 11pt;
-	text-align: justify;
-}
+
 a {
-	font-weight: bold;
-	color: orange;
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 0.3s;
 }
 
-.redtext {
-	color: red;
-    font-weight: bold;
+a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
 }
 
-#texteParticulier {
-    color: blue;
-    font-style: italic;
+/* ------------------------- */
+/* Composants JSF            */
+/* ------------------------- */
+/* ------------------------- */
+/* DataTable amélioré         */
+/* ------------------------- */
+.h-datatable {
+    margin: 2rem 0 !important;
+    border-spacing: 0 0.8rem !important;
+    width: 100%;
+    border-collapse: separate; /* Changé de collapse à separate */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-#panier {
-    color: green;
-    font-weight: bold;
+.h-datatable th {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1.2rem 1.5rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
 }
 
-#catalogue {
-    color: red;
-    font-weight: bold;
+.h-datatable td {
+    padding: 1.2rem 1.5rem;
+    background-color: #ffffff;
+    border-bottom: 2px solid var(--background-light);
+    vertical-align: middle;
+}
+
+.h-datatable tr:not(:last-child) td {
+    border-bottom: 2px solid var(--background-light);
+}
+
+.h-datatable tr:hover td {
+    background-color: #f8f7ff;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(128, 0, 128, 0.1);
+}
+
+/* Alternance de couleurs pour les lignes */
+.h-datatable tr:nth-child(even) td {
+    background-color: #fbfbff;
+}
+
+/* Coins arrondis pour la première et dernière cellule des lignes */
+.h-datatable tr td:first-child {
+    border-radius: 6px 0 0 6px;
+}
+
+.h-datatable tr td:last-child {
+    border-radius: 0 6px 6px 0;
+}
+
+/* En-têtes arrondis */
+.h-datatable th:first-child {
+    border-radius: 6px 0 0 0;
+}
+
+.h-datatable th:last-child {
+    border-radius: 0 6px 0 0;
+}
+
+/* Formulaires */
+.h-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 2rem 0;
+}
+
+.h-input-text {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.h-input-text:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(128, 0, 128, 0.2);
+}
+
+/* Boutons */
+.btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: var(--secondary-color);
+    color: white !important;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* Messages */
+.h-messages {
+    margin: 1rem 0;
 }
 
 .message-success {
-    color: green;
-    padding: 10px;
-    border: 1px solid green;
-    margin: 10px 0;
+    background-color: #d4edda;
+    color: var(--success-color);
+    padding: 1rem;
+    border: 1px solid #c3e6cb;
+    border-radius: 4px;
+    margin: 1rem 0;
 }
 
+.message-error {
+    background-color: #f8d7da;
+    color: var(--error-color);
+    padding: 1rem;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+}
 
+#catalog .h-datatable {
+    margin: 2rem 0;
+}
+
+#catalog .h-datatable td {
+    padding: 1.2rem 1.5rem;
+    vertical-align: middle;
+}
+
+#catalog .h-datatable .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.95rem;
+    background-color: var(--secondary-color);
+    transition: all 0.3s ease;
+}
+
+#catalog .h-datatable .btn:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+#catalog .h-datatable td:nth-child(3) {
+    color: var(--success-color);
+    font-weight: 600;
+}
+
+/* Responsive spécifique */
+@media (max-width: 768px) {
+    #catalog .h-datatable td {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    #catalog .h-datatable .btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* ------------------------- */
+/* Pages spécifiques         */
+/* ------------------------- */
+/* Panier */
+#panier .h-datatable {
+    margin-top: 2rem;
+}
+
+#panier .total {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-top: 1rem;
+}
+
+/* Formulaire de création */
+#product-create {
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+/* ------------------------- */
+/* Responsive Design         */
+/* ------------------------- */
+@media (max-width: 768px) {
+    .h-datatable {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .container {
+        padding: 0 0.5rem;
+    }
+}
+
+/* ------------------------- */
+/* Footer                    */
+/* ------------------------- */
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+/* ------------------------- */
+/* Navigation Bar            */
+/* ------------------------- */
+.navbar {
+    background-color: var(--primary-color);
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    color: white !important;
+    font-weight: 500;
+    transition: opacity 0.3s;
+}
+
+.nav-link:hover {
+    opacity: 0.8;
+    text-decoration: none !important;
+}
+
+/* Icônes Font Awesome (optionnel) */
+.nav-link i {
+    margin-right: 0.5rem;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+/* Ajouter des espacements et ombres */
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Styles pour les prix */
+.price {
+    color: var(--success-color);
+    font-weight: bold;
+}
+
+/* Styles pour les messages */
+.h-messages {
+    margin: 1rem 0;
+}
+
+/* ------------------------- */
+/* Formulaire de création    */
+/* ------------------------- */
+.product-form {
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn.btn-primary { background-color: var(--primary-color); }
+
+.btn.btn-secondary {
+    background-color: var(--secondary-color);
+}
+
+/* Validation des champs */
+.h-input-text:invalid {
+    border-color: var(--error-color) !important;
+    box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.2) !important;
+}
+
+/* Messages d'erreur */
+.error-message {
+    color: var(--error-color);
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+    display: block;
+}

@@ -2,23 +2,50 @@
 <!--
 /eMarket_1/web/catalog.xhtml
 -->
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="jakarta.faces.html"
-      xmlns:f="jakarta.faces.core">
-    <h:head>
-        <title>Catalogue</title>
-        <link href="monstyle.css" rel="stylesheet" type="text/css" />
-    </h:head>
-    <h:body>
-        <f:view>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="jakarta.faces.html" xmlns:f="jakarta.faces.core">
+<h:head>
+    <title>Catalogue</title>
+    <link href="monstyle.css" rel="stylesheet" type="text/css" />
+</h:head>
+<h:body>
+    <f:view>
+        <h:form>
             <h:messages globalOnly="true" styleClass="message-success" />
-            <h:panelGroup>
-                <h:outputText value="Catalogue" styleClass="h1"/>
-            </h:panelGroup>
-            <h:form>
-                <h:outputText value="Nombre de produits : #{catalogManager.products.size()}" />
-                <h:dataTable value="#{catalogManager.products}" var="product" rendered="#{not empty catalogManager.products}">
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li>
+                        <h:commandLink action="toindex" styleClass="nav-link">
+                            <i class="fas fa-home"></i> <!-- Optionnel -->
+                            <h:outputText value="Accueil" />
+                        </h:commandLink>
+                    </li>
+                    <li>
+                        <h:commandLink action="tocatalog" styleClass="nav-link">
+                            <i class="fas fa-book"></i>
+                            <h:outputText value="Catalogue" />
+                        </h:commandLink>
+                    </li>
+                    <li>
+                        <h:commandLink action="toshoppingcart" styleClass="nav-link">
+                            <i class="fas fa-shopping-cart"></i>
+                            <h:outputText value="Panier (#{shoppingCartManager.shoppingCart.size()})" />
+                        </h:commandLink>
+                    </li>
+                    <li>
+                        <h:commandLink action="toproductcreation" styleClass="nav-link">
+                            <i class="fas fa-plus"></i>
+                            <h:outputText value="Ajouter un produit" />
+                        </h:commandLink>
+                    </li>
+                </ul>
+            </nav>
+            <div class="container">
+                <h1>Catalogue</h1>
+
+                <h:dataTable value="#{catalogManager.products}" var="product" styleClass="h-datatable"
+                    rendered="#{not empty catalogManager.products}">
                     <h:column>
                         <f:facet name="header">ID</f:facet>
                         #{product.id}
@@ -33,28 +60,17 @@
                     </h:column>
                     <h:column>
                         <f:facet name="header">Action</f:facet>
-                        <h:commandButton value="Ajouter" action="#{shoppingCartManager.addToCart()}">
-                            <f:setPropertyActionListener 
-                                target="#{shoppingCartManager.prodToAdd}" 
-                                value="#{product.id}" 
-                            />
+                        <h:commandButton value="🛒 Ajouter" styleClass="btn btn-sm"
+                            action="#{shoppingCartManager.addToCart()}">
+                            <f:setPropertyActionListener target="#{shoppingCartManager.prodToAdd}"
+                                value="#{product.id}" />
                         </h:commandButton>
                     </h:column>
                 </h:dataTable>
-                <ul>
-                    <li>
-                        <h:commandLink action="toindex" styleClass="btn">
-                            <h:outputText value="Retour à l'accueil"/>
-                        </h:commandLink>
-                    </li>
-                    <li>
-                        <h:commandLink action="toshoppingcart" styleClass="btn">
-                            <h:outputText value="Voir le panier"/>
-                        </h:commandLink>
-                    </li>
-                </ul>
-            </h:form>
-        </f:view>
-    </h:body>
-</html>
 
+            </div>
+        </h:form>
+    </f:view>
+</h:body>
+
+</html>

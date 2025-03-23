@@ -1,30 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
--->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="jakarta.faces.html"
-      xmlns:f="jakarta.faces.core">
-    <h:head>
-        <title>Ajouter un nouveau produit au catalogue</title>
-        <link href="monstyle.css" rel="stylesheet" type="text/css" />
-    </h:head>
-    <h:body>
-        <f:view>
-            <h:form>
-                <h:commandLink action="toindex" styleClass="btn">
-                    <h:outputText value="Retour à l'accueil"/>
-                </h:commandLink>
-                <h:outputLabel id="id" for="id" value="ID du produit : " />
-                <h:inputText id="productId" value="#{catalogManager.newProductId}" />
-                <h:outputLabel id="name" for="name" value="Nom du produit : " />
-                <h:inputText id="productName" value="#{catalogManager.newProductName}" />
-                <h:outputLabel id="price" for="price" value="Prix du produit : " />
-                <h:inputText id="productPrice" value="#{catalogManager.newProductPrice}" />
-                <h:commandButton action="#{catalogManager.createProduct()}" value="Créer le produit" />
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="jakarta.faces.html" xmlns:f="jakarta.faces.core">
+<h:head>
+    <title>Ajouter un produit</title>
+    <link href="monstyle.css" rel="stylesheet" type="text/css" />
+</h:head>
+<h:body>
+    <f:view>
+        <!-- Formulaire de navigation (ne contient pas de champs requis) -->
+        <h:form>
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li>
+                        <h:commandLink action="toindex" styleClass="nav-link" immediate="true">
+                            <i class="fas fa-home"></i>
+                            <h:outputText value="Accueil" />
+                        </h:commandLink>
+                    </li>
+                    <li>
+                        <h:commandLink action="tocatalog" styleClass="nav-link" immediate="true">
+                            <i class="fas fa-book"></i>
+                            <h:outputText value="Catalogue" />
+                        </h:commandLink>
+                    </li>
+                    <li>
+                        <h:commandLink action="toshoppingcart" styleClass="nav-link" immediate="true">
+                            <i class="fas fa-shopping-cart"></i>
+                            <h:outputText value="Panier (#{shoppingCartManager.shoppingCart.size()})" />
+                        </h:commandLink>
+                    </li>
+                </ul>
+            </nav>
+        </h:form>
+
+        <!-- Formulaire de création -->
+        <div class="container">
+            <h:form styleClass="h-form product-form">
+                <h1>Ajouter un nouveau produit</h1>
+                <div class="form-group">
+                    <h:outputLabel for="productId" value="Référence (ID) : " styleClass="form-label" />
+                    <h:inputText id="productId" value="#{catalogManager.newProductId}" 
+                        styleClass="h-input-text" required="true" />
+                    <h:message for="productId" styleClass="error-message" />
+                </div>
+
+                <div class="form-group">
+                    <h:outputLabel for="productName" value="Nom : " styleClass="form-label" />
+                    <h:inputText id="productName" value="#{catalogManager.newProductName}" 
+                        styleClass="h-input-text" required="true" />
+                    <h:message for="productName" styleClass="error-message" />
+                </div>
+
+                <div class="form-group">
+                    <h:outputLabel for="productPrice" value="Prix (€) : " styleClass="form-label" />
+                    <h:inputText id="productPrice" value="#{catalogManager.newProductPrice}"
+                        styleClass="h-input-text" required="true" />
+                    <h:message for="productPrice" styleClass="error-message" />
+                </div>
+
+                <div class="form-actions">
+                    <h:commandButton value="Créer" action="#{catalogManager.createProduct()}"
+                        styleClass="btn btn-primary" />
+                    <h:commandLink action="tocatalog" styleClass="btn btn-secondary" immediate="true">
+                        Annuler
+                    </h:commandLink>
+                </div>
             </h:form>
-        </f:view>
-    </h:body>
+        </div>
+    </f:view>
+</h:body>
 </html>
