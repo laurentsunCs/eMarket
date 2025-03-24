@@ -38,13 +38,6 @@
             <h:form styleClass="h-form product-form">
                 <h1>Ajouter un nouveau produit</h1>
                 <div class="form-group">
-                    <h:outputLabel for="productId" value="Référence (ID) : " styleClass="form-label" />
-                    <h:inputText id="productId" value="#{catalogManager.newProductId}" 
-                        styleClass="h-input-text" required="true" />
-                    <h:message for="productId" styleClass="error-message" />
-                </div>
-
-                <div class="form-group">
                     <h:outputLabel for="productName" value="Nom : " styleClass="form-label" />
                     <h:inputText id="productName" value="#{catalogManager.newProductName}" 
                         styleClass="h-input-text" required="true" />
